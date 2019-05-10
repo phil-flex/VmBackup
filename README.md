@@ -18,19 +18,20 @@ Copyright (C) 2017  Northern Arizona University
 **Package Contents:** README.md (this file), VmBackup.py, example.cfg
 
 ## Version History:
- - v3.22 2017/11/11 Add full VM metadata dump to XML file to replace VM
-         metadata backup that could fail if special characters encountered.
-         Added name_description UNICODE fix. (2018-Mar-20)
-         Fixed bug in global definitions for vdi-export case. (2018-Mar-20)
- - v3.21 2017/09/29 Fix "except socket.error" syntax to also work with older
-          python version in XenServer 6.X
- - v3.2  2017/09/12 Fix wildcard handling and excludes for both VM and VDI
-         cases, add email retries.
- - v3.1  2016/11/26 Replaced prefix wildcard option with python regex wildcards.
- - v3.0  2016/03/04 Added vdi-export and VM prefix wildcards.
- - v2.1  2014/08/22 Added email status option.
- - v2.0  2014/04/09 New VmBackup version supersedes all previous NAU Backup
-         releases.
+ - v3.22.1  2019/05/10 Add support for XCP-NG zstd compression export. e.g. compress=zstd|gzip|false
+ - v3.22 		2017/11/11 Add full VM metadata dump to XML file to replace VM
+         		metadata backup that could fail if special characters encountered.
+         		Added name_description UNICODE fix. (2018-Mar-20)
+         		Fixed bug in global definitions for vdi-export case. (2018-Mar-20)
+ - v3.21 		2017/09/29 Fix "except socket.error" syntax to also work with older
+         		 python version in XenServer 6.X
+ - v3.2  		2017/09/12 Fix wildcard handling and excludes for both VM and VDI
+         		cases, add email retries.
+ - v3.1  		2016/11/26 Replaced prefix wildcard option with python regex wildcards.
+ - v3.0  		2016/03/04 Added vdi-export and VM prefix wildcards.
+ - v2.1  		2014/08/22 Added email status option.
+ - v2.0  		2014/04/09 New VmBackup version supersedes all previous NAU Backup
+         		releases.
 
 NAUbackup Authors --
 NAU/ITS Department:

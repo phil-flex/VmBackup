@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #
 #NAUVmBackup/VmBackup.py
-# V3.22 November 2017
+# V3.22.1 May 2019
 #
 #@NAUbackup - NAU/ITS Department:
 # Douglas Pace
@@ -412,8 +412,8 @@ def main(session):
         # vm-export vm-snapshot
         cmd = '%s/xe vm-export uuid=%s' % (xe_path, snap_vm_uuid)
         if compress:
-            full_path_backup_file = os.path.join(full_backup_dir, vm_name + '.xva.gz')
-            cmd = '%s filename="%s" compress=true' % (cmd, full_path_backup_file)
+            full_path_backup_file = os.path.join(full_backup_dir, vm_name + '.xva.' + compress)
+            cmd = '%s filename="%s" compress=%s' % (cmd, full_path_backup_file, compress)
         else:
             full_path_backup_file = os.path.join(full_backup_dir, vm_name + '.xva')
             cmd = '%s filename="%s"' % (cmd, full_path_backup_file) 
@@ -1289,7 +1289,7 @@ def usage_help():
     print
     print 'optional params:'
     print '  [preview] - preview/validate VmBackup config parameters and xenserver password'
-    print '  [compress=True|False] - only for vm-export functions automatic compression (default: False)'
+    print '  [compress=True|False|zstd|gzip] - only for vm-export functions automatic compression (default: False)'
     print '  [ignore_extra_keys=True|False] - some config files may have extra params (default: False)'
     print
     print 'alternate form - create-password-file:'
@@ -1401,7 +1401,7 @@ if __name__ == '__main__':
         if array[0].lower() == 'preview':
             preview = True
         elif array[0].lower() == 'compress':
-            compress = (array[1].lower() == 'true')
+            compress = array[1].lower() #(array[1].lower() == 'true')
         elif array[0].lower() == 'ignore_extra_keys':
             ignore_extra_keys = (array[1].lower() == 'true')
         else:
